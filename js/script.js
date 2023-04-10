@@ -2,12 +2,15 @@
 var addTaskButton = document.getElementById("add-task");
 var newTaskInput = document.getElementById("task-input");
 var todoListContainer = document.getElementById("todo-list");
+var templateContainer = document.getElementById("list-item-template");
+var template = templateContainer.innerHTML
 
 //step 2 write the behaviour
 function onAddTaskClicked(event) {
-    var taskNamne = newTaskInput.value;
+    var taskName = newTaskInput.value;
     newTaskInput.value = "";
-    todoListContainer.insertAdjacentHTML('afterbegin', taskNamne);
+    var taskHTML = template.replace("<!-- Task_Name -->", taskName);
+    todoListContainer.insertAdjacentHTML('afterbegin', taskHTML);
 }
 
 
