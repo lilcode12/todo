@@ -78,7 +78,7 @@ function renderTasks(){
     for (i = 0; i < localStorage.length; i++){
         var taskName = localStorage.key(i)
         var isCompleted = localStorage.getItem(taskName) == "true";
-        var taskHTML = template.replace("<--Task_Name -->", taskName)
+        var taskHTML = template.replace("<!--Task_Name -->", taskName)
         if(!isCompleted){
             todoListContainer.insertAdjacentHTML('afterbegin', taskHTML);
         }
