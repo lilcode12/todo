@@ -4,7 +4,7 @@ var newTaskInput = document.getElementById("task-input");
 var todoListContainer = document.getElementById("todo-list");
 
 var showActiveButton = document.getElementById("show-active")
-
+var showAllButton = document.getElementById("show-all")
 
 var templateContainer = document.getElementById("list-item-template");
 var template = templateContainer.innerHTML
@@ -16,6 +16,14 @@ function onAddTaskClicked(event) {
     var taskHTML = template.replace("<!-- Task_Name -->", taskName);
     todoListContainer.insertAdjacentHTML('afterbegin', taskHTML);
 }
+
+function showAllTasks(){
+    var tasks = document.getElementsByClassName('task')
+    for (let i = 0; i < tasks.length; i++){
+        tasks[i].style.display = "block";
+    }
+}
+
 
 function showActiveTasks( ) {
     var tasks = document.getElementsByClassName('task')
@@ -46,4 +54,5 @@ function onTodoListContainerClicked(event){
 //step 3 link to the event handler
 addTaskButton.addEventListener('click', onAddTaskClicked);
 todoListContainer.addEventListener('click', onTodoListContainerClicked);
-showActiveButton.addEventListener('click', showActiveTasks)
+showActiveButton.addEventListener('click', showActiveTasks);
+showAllButton.addEventListener('click', showAllTasks);
