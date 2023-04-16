@@ -29,7 +29,7 @@ function showActiveTasks( ) {
     }
 }
 
-function onTodoListClicked(event){
+function onTodoListContainerClicked(event){
     while (!targetElement.classList.contains("task")){
      targetElement = targetElement.parentElement;
     }
