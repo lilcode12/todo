@@ -9,7 +9,7 @@ var showActiveButton = document.getElementById("show-active")
 var templateContainer = document.getElementById("list-item-template");
 var template = templateContainer.innerHTML
 
-//step 2 write the behaviour
+//step 2 write the behaviour (behaviour)
 function onAddTaskClicked(event) {
     var taskName = newTaskInput.value;
     newTaskInput.value = "";
@@ -21,7 +21,7 @@ function showActiveTasks( ) {
     var tasks = document.getElementsByClassName('task')
     for (let i = 0; i < tasks.length; i++){
         if (tasks[i].classList.contains("completed")){
-            
+
             tasks[i].style.display = "none";
         } else {
             tasks[i].style.display = "block";
