@@ -33,12 +33,12 @@ function showAllTasks(){
 
 
 function showActiveTasks( ) {
-    var tasks = document.getElementsByClassName('task')
+    var tasks = document.getElementsByClassName('task');
     for (let i = 0; i < tasks.length; i++){
         if (tasks[i].classList.contains("completed")){
 
             tasks[i].style.display = "none";
-        } else {
+        } else{
             tasks[i].style.display = "block";
         }
     }
@@ -57,6 +57,7 @@ function showCompletedTasks( ) {
 }
 
 function onTodoListContainerClicked(event){
+    var targetElement = event.target;
     while (!targetElement.classList.contains("task")){
      targetElement = targetElement.parentElement;
     }
@@ -69,7 +70,7 @@ function onTodoListContainerClicked(event){
 
     var taskNameElement = targetElement.querySelector(".task-name")
     var taskName = taskNameElement.innterText;
-
+    saveTasks(taskName, checkbox.checked)
     
 }
 
@@ -78,6 +79,7 @@ function renderTasks(){
     for (i = 0; i < localStorage.length; i++){
         var taskName = localStorage.key(i)
         var isCompleted = localStorage.getItem(taskName) == "true";
+        console.log(template);
         var taskHTML = template.replace("<!--Task_Name -->", taskName)
         if(!isCompleted){
             todoListContainer.insertAdjacentHTML('afterbegin', taskHTML);
@@ -85,9 +87,7 @@ function renderTasks(){
     }
 }
 
-function saveTasks(taskName, isCompleted){
-    localStorage.setItem(name, isCompleted);
-}
+saveTasks(taskName, checkbox.checked)
 
 //step 3 link to the event handler
 addTaskButton.addEventListener('click', onAddTaskClicked);
