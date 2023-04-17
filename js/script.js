@@ -87,7 +87,9 @@ function renderTasks(){
     }
 }
 
-saveTasks(taskName, checkbox.checked)
+function saveTasks(name, isCompleted){
+    localStorage.setItem(name, isCompleted);
+}
 
 //step 3 link to the event handler
 addTaskButton.addEventListener('click', onAddTaskClicked);
