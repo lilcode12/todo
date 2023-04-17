@@ -70,7 +70,7 @@ function onTodoListContainerClicked(event){
     var taskNameElement = targetElement.querySelector(".task-name")
     var taskName = taskNameElement.innterText;
 
-    saveTasks(taskName, checkbox.checked)
+    
 }
 
 
@@ -84,6 +84,11 @@ function renderTasks(){
         }
     }
 }
+
+function saveTasks(taskName, isCompleted){
+    localStorage.setItem(name, isCompleted);
+}
+
 //step 3 link to the event handler
 addTaskButton.addEventListener('click', onAddTaskClicked);
 todoListContainer.addEventListener('click', onTodoListContainerClicked);
